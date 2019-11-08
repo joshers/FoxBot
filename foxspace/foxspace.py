@@ -18,10 +18,10 @@ class FoxSpace(commands.Cog):
         launch_name = next_launch[0].name
         launch_status = next_launch[0].status
         color = 0x0000FF
-        if launch_status == "1":
+        if launch_status == 1:
             status = "Green"
             color = 0x00FF00
-        if launch_status == "2":
+        if launch_status == 2:
             status = "Red"
             color = 0xFF0000
         embed = discord.Embed(
