@@ -17,6 +17,7 @@ class FoxSpace(commands.Cog):
         launch_end = next_launch[0].windowend
         launch_name = next_launch[0].name
         launch_status = next_launch[0].status
+        status = "Undetermined"
         color = 0x0000FF
         if launch_status == 1:
             status = "Green"
@@ -27,7 +28,7 @@ class FoxSpace(commands.Cog):
         embed = discord.Embed(
             title="Next Launch", description=launch_name, color=color
         )
-        embed.add_field(name="Status", value=launch_status)
+        embed.add_field(name="Status", value=status)
         embed.add_field(name="Window Begin", value=launch_start)
         embed.add_field(name="Window End", value=launch_end)
         embed.add_field(name="Pad", value=launch_loc)
