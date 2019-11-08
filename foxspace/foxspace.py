@@ -2,6 +2,7 @@ from redbot.core import commands
 
 import launchlibrary as ll
 import asyncio
+import discord
 
 class FoxSpace(commands.Cog):
     """FoxSpace Commands"""
