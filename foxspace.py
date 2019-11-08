@@ -4,10 +4,12 @@ import launchlibrary as ll
 import asyncio
 
 class FoxSpace(commands.Cog):
-    """My custom cog"""
+    """FoxSpace Commands"""
 
     @commands.command()
     async def nextlaunch(self, ctx):
+        """Displays Next Rocket Launch from LaunchLibrary API"""
+        # Then initialize an API object
 		embed = discord.Embed(
 				title="Next Launch", description="Upcoming Rocket Launch Information", color="red"
 				)
