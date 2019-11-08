@@ -12,7 +12,7 @@ class FoxSpace(commands.Cog):
         """Displays Next Rocket Launch from LaunchLibrary API"""
         # Then initialize an API object
         embed = discord.Embed(
-            title="Next Launch", description="Upcoming Rocket Launch Information", color="red"
+            title="Next Launch", description="Upcoming Rocket Launch Information", color=0xFF0000
         )
         embed.add_field(name="Rocket", value="Falcon 9 Block 5 | Starlink 1")
         embed.add_field(name="Launch Window Begin", value="November 11, 2019 14:51:00 UTC")
