@@ -12,7 +12,7 @@ class FoxSpace(commands.Cog):
         """Displays Next Rocket Launch from LaunchLibrary API"""
         api = ll.Api(retries=10)     
         next_launch = ll.Launch.next(api, 1)
-        launch_loc = next_launch[0].location
+        launch_loc = next_launch[0].pad
         launch_name = next_launch[0].name
         embed = discord.Embed(
             title="Next Launch", description="Upcoming Rocket Launch Information", color=0xFF0000
