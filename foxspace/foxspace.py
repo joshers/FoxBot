@@ -17,6 +17,7 @@ class FoxSpace(commands.Cog):
         launch_end = next_launch[0].windowend
         launch_name = next_launch[0].name
         launch_status = next_launch[0].status
+        color = 0x0000FF
         if launch_status == "1":
             status = "Green"
             color = 0x00FF00
