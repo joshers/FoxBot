@@ -6,7 +6,6 @@ import discord
 import urllib.request
 import json
 import datetime
-import division
 
 class FoxSpace(commands.Cog):
     """FoxSpace Commands"""
