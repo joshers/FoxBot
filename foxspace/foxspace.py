@@ -20,7 +20,7 @@ class FoxSpace(commands.Cog):
         launch_name = next_launch[0].name
         launch_status = next_launch[0].status"""
         with urllib.request.urlopen("https://launchlibrary.net/1.4/launch/next/1") as url:
-            launch = json.load(url.decode())
+            launch = json.load(url)
         launch_status = launch["status"]
         launch_start = launch["windowstart"]
         launch_end = launch["windowend"]
