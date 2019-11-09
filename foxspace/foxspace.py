@@ -21,11 +21,12 @@ class FoxSpace(commands.Cog):
         launch_status = next_launch[0].status"""
         with urllib.request.urlopen("https://launchlibrary.net/1.4/launch/next/1") as url:
             launch = json.load(url)
-        launch_status = launch[0]["status"]
-        launch_start = launch[0]["windowstart"]
-        launch_end = launch[0]["windowend"]
-        launch_loc = launch[0]["location"]
-        launch_name = launch[0]["name"]
+        launch_status = launch["launches"][0]["status"]
+        launch_start = launch["launches"][0]["windowstart"]
+        launch_end = launch["launches"][0]["windowend"]
+        launch_loc = launch["launches"][0]["location"]
+        launch_name = launch["launches"][0]["name"]
+        launch_pad = launch["launches"][0]["location"]["pads"][0]["name"]
         status = "Undetermined"
         color = 0x0000FF
         if launch_status == 1:
@@ -34,17 +35,12 @@ class FoxSpace(commands.Cog):
         if launch_status == 2:
             status = "Red"
             color = 0xFF0000
-
-        location = json.load(launch_loc)
-        pad = json.load(location["pads"])
-        padName = pad[0]["name"]
-
         embed = discord.Embed(
             title="Next Launch", description=launch_name, color=color
         )
         embed.add_field(name="Status", value=status)
         embed.add_field(name="Window Begin", value=launch_start)
         embed.add_field(name="Window End", value=launch_end)
-        embed.add_field(name="Pad", value=padName)
+        embed.add_field(name="Pad", value=launch_pad)
 
         await ctx.send(embed=embed)
