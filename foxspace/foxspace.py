@@ -25,12 +25,17 @@ class FoxSpace(commands.Cog):
         if launch_status == 2:
             status = "Red"
             color = 0xFF0000
+
+        location = json.load(launch_loc)
+        pad = json.load(location["pad"])
+        padName = pad["name"]
+
         embed = discord.Embed(
             title="Next Launch", description=launch_name, color=color
         )
         embed.add_field(name="Status", value=status)
         embed.add_field(name="Window Begin", value=launch_start)
         embed.add_field(name="Window End", value=launch_end)
-        embed.add_field(name="Pad", value=launch_loc)
+        embed.add_field(name="Pad", value=padName)
 
         await ctx.send(embed=embed)
