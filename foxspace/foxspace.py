@@ -21,11 +21,11 @@ class FoxSpace(commands.Cog):
         launch_status = next_launch[0].status"""
         with urllib.request.urlopen("https://launchlibrary.net/1.4/launch/next/1") as url:
             launch = json.load(url)
-        launch_status = launch["status"]
-        launch_start = launch["windowstart"]
-        launch_end = launch["windowend"]
-        launch_loc = launch["location"]
-        launch_name = launch["name"]
+        launch_status = launch[0]["status"]
+        launch_start = launch[0]["windowstart"]
+        launch_end = launch[0]["windowend"]
+        launch_loc = launch[0]["location"]
+        launch_name = launch[0]["name"]
         status = "Undetermined"
         color = 0x0000FF
         if launch_status == 1:
@@ -36,8 +36,8 @@ class FoxSpace(commands.Cog):
             color = 0xFF0000
 
         location = json.load(launch_loc)
-        pad = json.load(location["pad"])
-        padName = pad["name"]
+        pad = json.load(location["pads"])
+        padName = pad[0]["name"]
 
         embed = discord.Embed(
             title="Next Launch", description=launch_name, color=color
