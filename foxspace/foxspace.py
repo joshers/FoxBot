@@ -1,9 +1,10 @@
 from redbot.core import commands
 
-import launchlibrary as ll
+"""import launchlibrary as ll"""
 import asyncio
 import discord
-import json
+import urllib.request
+import json 
 
 class FoxSpace(commands.Cog):
     """FoxSpace Commands"""
@@ -11,13 +12,20 @@ class FoxSpace(commands.Cog):
     @commands.command()
     async def nextlaunch(self, ctx):
         """Displays Next Rocket Launch from LaunchLibrary API"""
-        api = ll.Api(retries=10)     
+        """api = ll.Api(retries=10)     
         next_launch = ll.Launch.next(api, 1)
         launch_loc = next_launch[0].location
         launch_start = next_launch[0].windowstart
         launch_end = next_launch[0].windowend
         launch_name = next_launch[0].name
-        launch_status = next_launch[0].status
+        launch_status = next_launch[0].status"""
+        with urllib.request.urlopen("https://launchlibrary.net/1.4/launch/next/1") as url:
+            launch = json.load(response)
+        launch_status = launch["status"]
+        launch_start = launch["windowstart"]
+        launch_end = launch["windowend"]
+        launch_loc = launch["location"]
+        launch_name = launch["name"]
         status = "Undetermined"
         color = 0x0000FF
         if launch_status == 1:
