@@ -43,7 +43,7 @@ class FoxSpace(commands.Cog):
         embed.add_field(name="Status", value=status)
         embed.add_field(name="Mission", value=launch_mission, inline="false")
         embed.add_field(name="Window Begin", value=launch_start, inline="false")
-        embed.add_field(name="Window End", value=launch_end inline="false")
+        embed.add_field(name="Window End", value=launch_end, inline="false")
         embed.add_field(name="Pad", value=launch_pad)
         embed.set_thumbnail(url=launch_image)
 
