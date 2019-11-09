@@ -42,7 +42,7 @@ class FoxSpace(commands.Cog):
             color = 0xFF0000
         launch_time = datetime.datetime.fromtimestamp(round(launchws_unix / 1000))
         current_time_utc = datetime.datetime.utcnow()
-        ttl = launch_time - current_time_utc
+        ttl = current_time_utc - launch_time
         embed = discord.Embed(
             title="Next Upcoming Rocket Launch", description=launch_name, color=color
         )
@@ -50,7 +50,7 @@ class FoxSpace(commands.Cog):
         embed.add_field(name="Pad", value=launch_pad, inline="false")
         embed.add_field(name="Window Begin", value=launch_start, inline="false")
         embed.add_field(name="Window End", value=launch_end, inline="false")
-        embed.add_field(name="Time To Launch", value=ttl, inline="false")
+        embed.add_field(name="Time To Launch Window", value=ttl, inline="false")
         embed.set_thumbnail(url=launch_image)
 
         await ctx.send(embed=embed)
