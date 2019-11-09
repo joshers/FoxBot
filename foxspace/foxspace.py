@@ -40,7 +40,7 @@ class FoxSpace(commands.Cog):
         if launch_status == 2:
             status = "Red"
             color = 0xFF0000
-        launch_time = datetime.fromtimestamp(launchws_unix)
+        launch_time = datetime.datetime.fromtimestamp(launchws_unix)
         current_time_utc = datetime.datetime.utcnow()
         ttl = current_time_utc - launch_time
         embed = discord.Embed(
