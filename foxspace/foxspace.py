@@ -51,5 +51,4 @@ class FoxSpace(commands.Cog):
         embed.add_field(name="Window Begin", value=launch_start, inline="false")
         embed.add_field(name="Window End", value=launch_end, inline="false")
         embed.set_thumbnail(url=launch_image)
-        await ctx.typing()
         await ctx.send(embed=embed)
