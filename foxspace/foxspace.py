@@ -27,6 +27,8 @@ class FoxSpace(commands.Cog):
         launch_loc = launch["launches"][0]["location"]
         launch_name = launch["launches"][0]["name"]
         launch_pad = launch["launches"][0]["location"]["pads"][0]["name"]
+        launch_mission = launch["launches"][0]["missions"[0]["description"]
+        launch_image = launch["launches"][0]["rocket"]["imageURL"]
         status = "Undetermined"
         color = 0x0000FF
         if launch_status == 1:
@@ -39,8 +41,10 @@ class FoxSpace(commands.Cog):
             title="Next Launch", description=launch_name, color=color
         )
         embed.add_field(name="Status", value=status)
-        embed.add_field(name="Window Begin", value=launch_start)
-        embed.add_field(name="Window End", value=launch_end)
+        embed.add_field(name="Mission", value=launch_mission, inline="false")
+        embed.add_field(name="Window Begin", value=launch_start, inline="false")
+        embed.add_field(name="Window End", value=launch_end inline="false")
         embed.add_field(name="Pad", value=launch_pad)
+        embed.set_thumbnail(url=launch_image)
 
         await ctx.send(embed=embed)
