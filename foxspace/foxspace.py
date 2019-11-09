@@ -26,9 +26,9 @@ class FoxSpace(commands.Cog):
         launch_end = launch["launches"][0]["windowend"]
         launch_loc = launch["launches"][0]["location"]
         launch_name = launch["launches"][0]["name"]
+        launch_images = launch["launches"][0]["rocket"]["imageURL"]
         launch_pad = launch["launches"][0]["location"]["pads"][0]["name"]
-        launch_mission = launch["launches"][0]["missions"[0]["description"]
-        launch_image = launch["launches"][0]["rocket"]["imageURL"]
+        launch_mission = launch["launches"][0]["missions"][0]["description"]
         status = "Undetermined"
         color = 0x0000FF
         if launch_status == 1:
