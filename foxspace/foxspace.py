@@ -38,7 +38,7 @@ class FoxSpace(commands.Cog):
             status = "Red"
             color = 0xFF0000
         embed = discord.Embed(
-            title="Next Launch", description=launch_name, color=color
+            title="Next Upcoming Rocket Launch", description=launch_name, color=color
         )
         embed.add_field(name="Mission", value=launch_mission, inline="false")
         embed.add_field(name="Pad", value=launch_pad, inline="false")
