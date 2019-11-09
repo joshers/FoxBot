@@ -6,6 +6,7 @@ import discord
 import urllib.request
 import json
 import datetime
+import division
 
 class FoxSpace(commands.Cog):
     """FoxSpace Commands"""
@@ -40,8 +41,9 @@ class FoxSpace(commands.Cog):
         if launch_status == 2:
             status = "Red"
             color = 0xFF0000
+        launch_time = datetime.datetime.fromtimestamp(round(launchws_unix / 1000))
         current_time_utc = datetime.datetime.utcnow()
-        ttl = launchws_unix - current_time_utc
+        ttl = launch_time - current_time_utc
         embed = discord.Embed(
             title="Next Upcoming Rocket Launch", description=launch_name, color=color
         )
