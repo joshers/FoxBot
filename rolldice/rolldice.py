@@ -22,7 +22,7 @@ class Rolldice(commands.Cog):
         res = []
         for dice_set in to_roll:
             try:
-                res += (dice_set, dice.roll(dice_set))
+                res += (dice_set, str(dice.roll(dice_set)))
             except dice.DiceBaseException as e:
                 #pretty_e = e.pretty_print().replace('\n', '\n\t')
                 #res += (dice_set, f'Invalid dice syntax:\n\t{pretty_e}')
