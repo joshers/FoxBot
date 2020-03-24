@@ -22,13 +22,12 @@ class Rolldice(commands.Cog):
         res = []
         for dice_set in to_roll:
             try:
-                res += (dice_set, str(dice.roll(dice_set)))
+                res.append((dice_set, str(dice.roll(dice_set))))
             except dice.DiceBaseException as e:
                 #pretty_e = e.pretty_print().replace('\n', '\n\t')
                 #res += (dice_set, f'Invalid dice syntax:\n\t{pretty_e}')
                 res += (dice_set, 'Dice string error')
             except Exception as e:
                 res += (dice_set, 'Input error')
-        
-        await ctx.send('\n'.join([f'{k}: {v}' for k,v in res]))
 
+        await ctx.send('\n'.join([f'{k}: {v}' for k,v in res]))
