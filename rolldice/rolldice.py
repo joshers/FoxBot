@@ -16,7 +16,7 @@ class Rolldice(commands.Cog):
         """Roll dice with the syntax of NdS"""
         if not to_roll:
             to_roll = ['1d6']
-        if len(to_roll > self.max_dice_sets):
+        if len(to_roll) > self.max_dice_sets:
             await ctx.send(f'Too many dice sets to roll, max is {max_dice_sets}')
 
         res = []
