@@ -13,6 +13,7 @@ class Rolldice(commands.Cog):
 
     @commands.command()
     async def rolldice(self, ctx, *to_roll: str):
+        """Roll dice with the syntax of NdS"""
         if not to_roll:
             to_roll = ['1d6']
         if len(to_roll > self.max_dice_sets):
