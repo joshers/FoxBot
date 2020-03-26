@@ -18,6 +18,7 @@ class Rolldice(commands.Cog):
             to_roll = ['1d6']
         if len(to_roll) > self.max_dice_sets:
             await ctx.send(f'Too many dice sets to roll, max is {max_dice_sets}')
+            return
 
         res = []
         for dice_set in to_roll:
